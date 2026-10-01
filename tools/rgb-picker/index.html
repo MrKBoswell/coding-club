@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RGB & Alpha Color Picker</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="style-tool.css">
+</head>
+<body class="tool-page">
+
+  <!-- Header Navigation -->
+  <header class="tool-nav">
+    <a href="../../index.html" class="back-link">&larr; Back to Tools</a>
+  </header>
+
+  <!-- Left Workspace Area -->
+  <main class="workspace-card">
+    <div class="preview-wrapper">
+      <div class="checkered-bg">
+        <div id="colorPreview" class="color-preview box">
+          <span id="previewText" class="preview-text-content" style="display: none;">Text</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="preview-controls">
+      <span class="control-section-label">Shape</span>
+      <div class="btn-group">
+        <button class="shape-btn active" data-shape="box">Square</button>
+        <button class="shape-btn" data-shape="circle">Circle</button>
+        <button class="shape-btn" data-shape="text">Text</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Pinned Right Sidebar Controls -->
+  <aside class="sidebar-menu">
+    <div class="sidebar-title">Controls</div>
+
+    <!-- Quick Color Presets -->
+    <div class="control-section">
+      <span class="control-section-label">Quick Presets</span>
+      <div class="preset-grid">
+        <button class="preset-swatch" style="background: #ef4444;" data-r="239" data-g="68" data-b="68" data-a="255" title="Red"></button>
+        <button class="preset-swatch" style="background: #22c55e;" data-r="34" data-g="197" data-b="94" data-a="255" title="Green"></button>
+        <button class="preset-swatch" style="background: #3b82f6;" data-r="59" data-g="130" data-b="246" data-a="255" title="Blue"></button>
+        <button class="preset-swatch" style="background: #eab308;" data-r="234" data-g="179" data-b="8" data-a="255" title="Yellow"></button>
+        <button class="preset-swatch" style="background: #06b6d4;" data-r="6" data-g="182" data-b="212" data-a="255" title="Cyan"></button>
+        <button class="preset-swatch" style="background: #a855f7;" data-r="168" data-g="85" data-b="247" data-a="255" title="Purple"></button>
+        <button class="preset-swatch" style="background: #ffffff;" data-r="255" data-g="255" data-b="255" data-a="255" title="White"></button>
+        <button class="preset-swatch" style="background: #000000;" data-r="0" data-g="0" data-b="0" data-a="255" title="Black"></button>
+        <button class="preset-swatch" style="background: rgba(255, 255, 255, 0.4);" data-r="255" data-g="255" data-b="255" data-a="102" title="Semi-Transparent White"></button>
+      </div>
+    </div>
+
+    <!-- RGB Sliders -->
+    <div class="control-section">
+      <span class="control-section-label">Color Channels</span>
+
+      <div class="control-group">
+        <div class="label-row">
+          <label for="redSlider">Red (R)</label>
+          <span id="redVal" class="value-badge channel-red">56</span>
+        </div>
+        <input type="range" id="redSlider" class="slider-red" min="0" max="255" value="56">
+      </div>
+
+      <div class="control-group">
+        <div class="label-row">
+          <label for="greenSlider">Green (G)</label>
+          <span id="greenVal" class="value-badge channel-green">189</span>
+        </div>
+        <input type="range" id="greenSlider" class="slider-green" min="0" max="255" value="189">
+      </div>
+
+      <div class="control-group">
+        <div class="label-row">
+          <label for="blueSlider">Blue (B)</label>
+          <span id="blueVal" class="value-badge channel-blue">248</span>
+        </div>
+        <input type="range" id="blueSlider" class="slider-blue" min="0" max="255" value="248">
+      </div>
+
+      <div class="control-group">
+        <div class="label-row">
+          <label for="alphaSlider">Alpha (Opacity)</label>
+          <span id="alphaVal" class="value-badge accent">255 (100%)</span>
+        </div>
+        <input type="range" id="alphaSlider" min="0" max="255" value="255">
+      </div>
+    </div>
+
+    <!-- Readout Card -->
+    <div class="readout-card">
+      <div class="stat-item">
+        <span>HEX Code</span>
+        <span class="stat-value"><code id="readoutHex">#38BDF8</code></span>
+      </div>
+      <div class="stat-item">
+        <span>R, G, B, A</span>
+        <span class="stat-value"><code id="readoutTuple">(56, 189, 248, 255)</code></span>
+      </div>
+    </div>
+
+    <!-- Python Code Generator -->
+    <div class="code-preview-card">
+      <span class="control-section-label">BOSWELL</span>
+      <pre><code id="pythonCode">PLAYER_COLOR = (56, 189, 248)&#10;screen.fill(PLAYER_COLOR)</code></pre>
+    </div>
+  </aside>
+
+  <script src="script-rgb.js"></script>
+</body>
+</html>
