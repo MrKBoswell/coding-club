@@ -1,0 +1,92 @@
+/* ==========================================================================
+   GLOBAL BASE STYLES & RESET
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #09090b;
+  color: #f4f4f5;
+  min-height: 100vh;
+  padding: 40px 20px;
+  line-height: 1.5;
+}
+
+/* Landing Page Layout Constraint */
+body:not(.tool-page) {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Landing Page Header */
+.main-header {
+  margin-bottom: 40px;
+}
+
+.main-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #f4f4f5;
+  letter-spacing: -0.02em;
+}
+
+.main-subtitle {
+  color: #a1a1aa;
+  font-size: 1.05rem;
+  margin-top: 6px;
+}
+
+/* Tool Grid Cards */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.tool-card {
+  background: #18181b;
+  border: 1px solid #27272a;
+  border-radius: 12px;
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-4px);
+  border-color: #38bdf8;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.card-icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #f4f4f5;
+  margin-bottom: 8px;
+}
+
+.card-description {
+  font-size: 0.875rem;
+  color: #a1a1aa;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.card-link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #38bdf8;
+}

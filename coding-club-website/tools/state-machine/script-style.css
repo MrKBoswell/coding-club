@@ -1,0 +1,242 @@
+/* ==========================================================================
+   TOOL PAGE & 2-COLUMN LAYOUT
+   ========================================================================== */
+
+.tool-page {
+  padding: 20px 32px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.tool-header {
+  margin-bottom: 16px;
+}
+
+.back-link {
+  color: #a1a1aa;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: #38bdf8;
+}
+
+.tool-header h1 {
+  display: none; /* Layout matches hub screenshot without duplicate top heading */
+}
+
+/* Main 2-Column Flex Grid */
+.tool-layout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+/* ==========================================================================
+   LEFT COLUMN: MAIN WORKSPACE / CANVAS
+   ========================================================================== */
+
+.workspace-card {
+  flex: 1;
+  background: #121318;
+  border: 1px solid #27272a;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 520px;
+}
+
+.canvas-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #09090b;
+  border: 1px solid #1f1f23;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.workspace-controls {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Button Controls */
+.btn-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.action-btn {
+  background: #18181b;
+  border: 1px solid #3f3f46;
+  color: #f4f4f5;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+  background: #27272a;
+  border-color: #38bdf8;
+  color: #38bdf8;
+}
+
+.hint-text {
+  font-size: 0.8rem;
+  color: #a1a1aa;
+}
+
+/* ==========================================================================
+   RIGHT COLUMN: SIDEBAR INSPECTOR
+   ========================================================================== */
+
+.sidebar {
+  width: 360px;
+  flex-shrink: 0;
+  background: #121318;
+  border: 1px solid #27272a;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar-title {
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #f4f4f5;
+  border-bottom: 1px solid #27272a;
+  padding-bottom: 12px;
+}
+
+.status-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 2px solid #38bdf8;
+  background: #18181b;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.control-section-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #a1a1aa;
+  margin-bottom: 10px;
+}
+
+.flag-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.flag-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #18181b;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+.flag-name {
+  color: #a1a1aa;
+  font-family: monospace;
+}
+
+.flag-val {
+  color: #ef4444;
+  font-weight: 600;
+  font-family: monospace;
+}
+
+.flag-val.true {
+  color: #38bdf8;
+}
+
+.readout-card, .code-preview-card {
+  background: #18181b;
+  border: 1px solid #27272a;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.rules-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rule-item {
+  font-size: 0.8rem;
+  color: #d4d4d8;
+  background: #09090b;
+  padding: 6px 10px;
+  border-radius: 4px;
+  border-left: 3px solid #38bdf8;
+}
+
+pre {
+  background: #09090b;
+  border: 1px solid #27272a;
+  border-radius: 6px;
+  padding: 12px;
+  margin-top: 6px;
+  overflow-x: auto;
+}
+
+code {
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: #38bdf8;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 960px) {
+  .tool-layout {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+  }
+}

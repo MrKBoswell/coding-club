@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Character State Machine Visualizer</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="style-tool.css">
+</head>
+<body class="tool-page">
+
+  <header class="tool-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Tools</a>
+  </header>
+
+  <div class="tool-layout">
+    <!-- Main Workspace Area -->
+    <main class="workspace-card">
+      <div class="canvas-wrapper">
+        <canvas id="stateCanvas" width="600" height="380"></canvas>
+      </div>
+
+      <div class="workspace-controls">
+        <div class="btn-group">
+          <button id="triggerLeft" class="action-btn">← Walk Left</button>
+          <button id="triggerRight" class="action-btn">Walk Right →</button>
+          <button id="triggerJump" class="action-btn">Space (Jump)</button>
+          <button id="triggerAttack" class="action-btn">Z (Attack)</button>
+          <button id="triggerHurt" class="action-btn">H (Hurt)</button>
+        </div>
+        <span class="hint-text">💡 Press keys on keyboard or click buttons to trigger transitions</span>
+      </div>
+    </main>
+
+    <!-- Sidebar Inspector -->
+    <aside class="sidebar">
+      <div class="sidebar-title">State Machine Inspector</div>
+
+      <div id="stateBanner" class="status-banner state-idle">
+        <span class="status-indicator"></span>
+        <span id="currentStateText">State: IDLE</span>
+      </div>
+
+      <div class="control-section">
+        <span class="control-section-label">Character Flags</span>
+        <div class="flag-list">
+          <div class="flag-item"><span class="flag-name">is_grounded</span><span id="flagGrounded" class="flag-val true">True</span></div>
+          <div class="flag-item"><span class="flag-name">velocity_y</span><span id="flagVelY" class="flag-val">0</span></div>
+          <div class="flag-item"><span class="flag-name">can_attack</span><span id="flagAttack" class="flag-val true">True</span></div>
+        </div>
+      </div>
+
+      <div class="readout-card">
+        <span class="control-section-label">Active State Rules</span>
+        <div id="transitionRules" class="rules-list">
+          <!-- Dynamic active rules injected here -->
+        </div>
+      </div>
+
+      <div class="code-preview-card">
+        <span class="control-section-label">Pygame Implementation</span>
+        <pre><code id="pythonCode"># State Machine Logic</code></pre>
+      </div>
+    </aside>
+  </div>
+
+  <script src="script-state.js"></script>
+</body>
+</html>

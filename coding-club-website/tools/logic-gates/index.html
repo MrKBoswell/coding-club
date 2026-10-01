@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boolean Logic Gate Circuit</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="style-tool.css">
+</head>
+<body class="tool-page">
+
+  <header class="tool-header">
+    <a href="../../index.html" class="back-link">&larr; Back to Tools</a>
+  </header>
+
+  <div class="tool-layout">
+    <!-- Main Workspace Area -->
+    <main class="workspace-card">
+      <div class="canvas-wrapper">
+        <canvas id="circuitCanvas" width="600" height="380"></canvas>
+      </div>
+
+      <div class="workspace-controls">
+        <div class="switches-group">
+          <label class="switch-toggle">
+            <input type="checkbox" id="switchKey">
+            <span class="slider"></span>
+            <span class="switch-label">🔑 Has Key (A)</span>
+          </label>
+          <label class="switch-toggle">
+            <input type="checkbox" id="switchDoor">
+            <span class="slider"></span>
+            <span class="switch-label">🚪 Near Door (B)</span>
+          </label>
+          <label class="switch-toggle">
+            <input type="checkbox" id="switchLocked">
+            <span class="slider"></span>
+            <span class="switch-label">🔒 Is Locked (C)</span>
+          </label>
+        </div>
+      </div>
+    </main>
+
+    <!-- Sidebar Inspector -->
+    <aside class="sidebar">
+      <div class="sidebar-title">Circuit Inspector</div>
+
+      <div id="doorStatusBanner" class="status-banner locked">
+        <span class="status-indicator"></span>
+        <span id="doorStatusText">Chest Locked (False)</span>
+      </div>
+
+      <div class="control-section">
+        <span class="control-section-label">Operator Logic Mode</span>
+        <div class="btn-group">
+          <button class="mode-btn active" data-mode="STANDARD">AND/OR Gate</button>
+          <button class="mode-btn" data-mode="OVERRIDE">Admin Override</button>
+        </div>
+      </div>
+
+      <div class="readout-card">
+        <span class="control-section-label">Boolean Expression</span>
+        <div id="expressionText" class="expression-box">
+          (A AND B) AND (NOT C)
+        </div>
+      </div>
+
+      <div class="code-preview-card">
+        <span class="control-section-label">Pygame Condition</span>
+        <pre><code id="pythonCode"># Python Boolean Logic</code></pre>
+      </div>
+    </aside>
+  </div>
+
+  <script src="script-logic.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XY Coordinate Tool</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="style-tool.css">
+</head>
+<body class="tool-page">
+
+  <!-- Header Navigation -->
+  <header class="tool-nav">
+    <a href="../../index.html" class="back-link">&larr; Back to Tools</a>
+  </header>
+
+  <!-- Left Workspace Area -->
+  <main class="workspace-card">
+    <div class="canvas-wrapper">
+      <canvas id="gridCanvas"></canvas>
+      <div id="hoverTooltip" class="hover-tooltip">(0, 0)</div>
+    </div>
+  </main>
+
+  <!-- Pinned Right Sidebar Controls -->
+  <aside class="sidebar-menu">
+    <div class="sidebar-title">Controls</div>
+
+    <!-- Grid Size -->
+    <div class="control-section">
+      <span class="control-section-label">Grid Dimensions</span>
+      
+      <div class="control-group">
+        <div class="label-row">
+          <label for="widthSlider">Width (X)</label>
+          <span id="widthVal" class="value-badge">1920 px</span>
+        </div>
+        <input type="range" id="widthSlider" min="10" max="1920" value="1920">
+      </div>
+
+      <div class="control-group">
+        <div class="label-row">
+          <label for="heightSlider">Height (Y)</label>
+          <span id="heightVal" class="value-badge">1080 px</span>
+        </div>
+        <input type="range" id="heightSlider" min="10" max="1080" value="1080">
+      </div>
+    </div>
+
+    <!-- Target Size Stepper Control -->
+    <div class="control-section">
+      <span class="control-section-label">Target Size (px²)</span>
+      <div class="stepper-row">
+        <button id="sizeMinusBtn" class="stepper-btn" aria-label="Decrease Target Size">&minus;</button>
+        <span id="targetSizeVal" class="value-badge accent size-badge">1</span>
+        <button id="sizePlusBtn" class="stepper-btn" aria-label="Increase Target Size">&plus;</button>
+      </div>
+    </div>
+
+    <!-- Active Target Position -->
+    <div class="control-section">
+      <span class="control-section-label">Target Position</span>
+
+      <div class="control-group">
+        <div class="label-row">
+          <label for="xSlider">X Position</label>
+          <span id="xVal" class="value-badge accent">960</span>
+        </div>
+        <input type="range" id="xSlider" min="0" max="1919" value="960">
+      </div>
+
+      <div class="control-group">
+        <div class="label-row">
+          <label for="ySlider">Y Position</label>
+          <span id="yVal" class="value-badge accent">540</span>
+        </div>
+        <input type="range" id="ySlider" min="0" max="1079" value="540">
+      </div>
+    </div>
+
+    <!-- Readout Card -->
+    <div class="readout-card">
+      <div class="stat-item">
+        <span>Active Coordinate</span>
+        <span class="stat-value"><code>(<span id="readoutX">960</span>, <span id="readoutY">540</span>)</code></span>
+      </div>
+      <div class="stat-item">
+        <span>Grid Dimensions</span>
+        <span class="stat-value"><code><span id="readoutW">1920</span> &times; <span id="readoutH">1080</span></code></span>
+      </div>
+    </div>
+
+    <!-- Python Code Generator -->
+    <div class="code-preview-card">
+      <span class="control-section-label">Pygame Code</span>
+      <pre><code id="pythonCode">player_x = 960&#10;player_y = 540</code></pre>
+    </div>
+  </aside>
+
+  <script src="script-xy.js"></script>
+</body>
+</html>

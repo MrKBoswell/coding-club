@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AABB Collision Visualizer</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="style-tool.css">
+</head>
+<body class="tool-page">
+
+  <!-- Header Navigation -->
+  <header class="tool-nav">
+    <a href="../../index.html" class="back-link">&larr; Back to Tools</a>
+  </header>
+
+  <!-- Left Workspace Area -->
+  <main class="workspace-card">
+    <div class="canvas-wrapper">
+      <canvas id="collisionCanvas" width="600" height="400"></canvas>
+    </div>
+
+    <!-- Canvas Controls / Quick Actions -->
+    <div class="workspace-controls">
+      <div class="btn-group">
+        <button id="resetPosBtn" class="action-btn">Reset Positions</button>
+        <button id="toggleAnimBtn" class="action-btn">Start Bounce Animation</button>
+      </div>
+      <span class="hint-text">💡 Drag rectangles on the grid to test collision logic</span>
+    </div>
+  </main>
+
+  <!-- Pinned Right Sidebar Controls -->
+  <aside class="sidebar-menu">
+    <div class="sidebar-title">Controls & Parameters</div>
+
+    <!-- Collision Status Banner -->
+    <div id="collisionBanner" class="status-banner no-collision">
+      <span class="status-indicator"></span>
+      <span id="statusText">No Collision (False)</span>
+    </div>
+
+    <!-- Rectangle A Controls -->
+    <div class="control-section rect-a-section">
+      <span class="control-section-label">Rectangle A (Player)</span>
+      
+      <div class="control-group dual">
+        <div class="sub-group">
+          <label for="rectAWidth">Width (w1)</label>
+          <input type="number" id="rectAWidth" value="100" min="20" max="250" step="5">
+        </div>
+        <div class="sub-group">
+          <label for="rectAHeight">Height (h1)</label>
+          <input type="number" id="rectAHeight" value="100" min="20" max="250" step="5">
+        </div>
+      </div>
+    </div>
+
+    <!-- Rectangle B Controls -->
+    <div class="control-section rect-b-section">
+      <span class="control-section-label">Rectangle B (Obstacle)</span>
+      
+      <div class="control-group dual">
+        <div class="sub-group">
+          <label for="rectBWidth">Width (w2)</label>
+          <input type="number" id="rectBWidth" value="100" min="20" max="250" step="5">
+        </div>
+        <div class="sub-group">
+          <label for="rectBHeight">Height (h2)</label>
+          <input type="number" id="rectBHeight" value="100" min="20" max="250" step="5">
+        </div>
+      </div>
+    </div>
+
+    <!-- Inequality Math Inspector -->
+    <div class="readout-card">
+      <span class="control-section-label">AABB Inequality Breakdown</span>
+      <div id="mathConditions" class="math-list">
+        <div id="cond1" class="cond-item">
+          <span>x1 &lt; x2 + w2</span>
+          <code id="val1">0 &lt; 0</code>
+        </div>
+        <div id="cond2" class="cond-item">
+          <span>x1 + w1 &gt; x2</span>
+          <code id="val2">0 &gt; 0</code>
+        </div>
+        <div id="cond3" class="cond-item">
+          <span>y1 &lt; y2 + h2</span>
+          <code id="val3">0 &lt; 0</code>
+        </div>
+        <div id="cond4" class="cond-item">
+          <span>y1 + h1 &gt; y2</span>
+          <code id="val4">0 &gt; 0</code>
+        </div>
+      </div>
+    </div>
+
+    <!-- Python Code Generator -->
+    <div class="code-preview-card">
+      <span class="control-section-label">Pygame Implementation</span>
+      <pre><code id="pythonCode"># High-Level Check
+is_colliding = player_rect.colliderect(obstacle_rect)</code></pre>
+    </div>
+  </aside>
+
+  <script src="script-aabb.js"></script>
+</body>
+</html>

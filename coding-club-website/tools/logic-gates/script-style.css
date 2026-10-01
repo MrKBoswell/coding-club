@@ -1,0 +1,279 @@
+/* ==========================================================================
+   TOOL PAGE & 2-COLUMN LAYOUT
+   ========================================================================== */
+
+.tool-page {
+  padding: 20px 32px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.tool-header {
+  margin-bottom: 16px;
+}
+
+.back-link {
+  color: #a1a1aa;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: #38bdf8;
+}
+
+.tool-header h1 {
+  display: none;
+}
+
+/* Main 2-Column Flex Grid */
+.tool-layout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+/* ==========================================================================
+   LEFT COLUMN: MAIN WORKSPACE / CANVAS
+   ========================================================================== */
+
+.workspace-card {
+  flex: 1;
+  background: #121318;
+  border: 1px solid #27272a;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 520px;
+}
+
+.canvas-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #09090b;
+  border: 1px solid #1f1f23;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.workspace-controls {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Switch Toggles */
+.switches-group {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.switch-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  background: #18181b;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #27272a;
+  transition: border-color 0.2s ease;
+  user-select: none;
+}
+
+.switch-toggle:hover {
+  border-color: #38bdf8;
+}
+
+.switch-toggle input {
+  display: none;
+}
+
+.slider {
+  width: 36px;
+  height: 20px;
+  background-color: #27272a;
+  border-radius: 20px;
+  position: relative;
+  transition: background-color 0.2s ease;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  left: 3px;
+  top: 3px;
+  background-color: #a1a1aa;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.switch-toggle input:checked + .slider {
+  background-color: #0284c7;
+}
+
+.switch-toggle input:checked + .slider::before {
+  transform: translateX(16px);
+  background-color: #ffffff;
+}
+
+.switch-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #f4f4f5;
+}
+
+/* ==========================================================================
+   RIGHT COLUMN: SIDEBAR INSPECTOR
+   ========================================================================== */
+
+.sidebar {
+  width: 360px;
+  flex-shrink: 0;
+  background: #121318;
+  border: 1px solid #27272a;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar-title {
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #f4f4f5;
+  border-bottom: 1px solid #27272a;
+  padding-bottom: 12px;
+}
+
+.status-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #3f3f46;
+  background: #18181b;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.status-banner.locked {
+  border-color: #ef4444;
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.status-banner.unlocked {
+  border-color: #22c55e;
+  color: #22c55e;
+  background: rgba(34, 197, 94, 0.1);
+}
+
+.control-section-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #a1a1aa;
+  margin-bottom: 10px;
+}
+
+.btn-group {
+  display: flex;
+  gap: 8px;
+}
+
+.mode-btn {
+  flex: 1;
+  background: #18181b;
+  border: 1px solid #3f3f46;
+  color: #a1a1aa;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mode-btn:hover {
+  border-color: #38bdf8;
+  color: #f4f4f5;
+}
+
+.mode-btn.active {
+  background: #0284c7;
+  border-color: #38bdf8;
+  color: #ffffff;
+}
+
+.readout-card, .code-preview-card {
+  background: #18181b;
+  border: 1px solid #27272a;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.expression-box {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #38bdf8;
+  background: #09090b;
+  padding: 10px;
+  border-radius: 6px;
+  word-break: break-all;
+}
+
+pre {
+  background: #09090b;
+  border: 1px solid #27272a;
+  border-radius: 6px;
+  padding: 12px;
+  margin-top: 6px;
+  overflow-x: auto;
+}
+
+code {
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: #38bdf8;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 960px) {
+  .tool-layout {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+  }
+}
